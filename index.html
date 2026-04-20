@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="NeuroBrainTec - Premium Software Solutions, AI Automation, Web and Mobile App Development.">
+    <title>NeuroBrainTec | Advanced Software Solutions</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&family=Inter:wght@300;400;600&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/style.css">
+
+    <style>
+        /* Fallback loader styles */
+        #loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #050505;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(255, 255, 255, 0.1);
+            border-top-color: #00f0ff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body data-theme="dark">
+    <div class="custom-cursor"></div>
+    <div class="cursor-follower"></div>
+    <div id="loader">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- 3D Background Canvas -->
+    <canvas id="webgl-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span class="gradient-text">NeuroBrain</span>Tec
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#contact" class="btn-primary-sm">Get in Touch</a></li>
+                <li>
+                    <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme">
+                        <i class="fas fa-moon" id="theme-icon"></i>
+                    </button>
+                </li>
+            </ul>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <!-- Hero Slider -->
+            <div class="hero-slider">
+                <div class="slide active"
+                    style="background-image: url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop');">
+                </div>
+                <div class="slide"
+                    style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop');">
+                </div>
+                <div class="slide"
+                    style="background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop');">
+                </div>
+                <div class="slide"
+                    style="background-image: url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2070&auto=format&fit=crop');">
+                </div>
+                <div class="slide"
+                    style="background-image: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2070&auto=format&fit=crop');">
+                </div>
+                <div class="slide"
+                    style="background-image: url('https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=2070&auto=format&fit=crop');">
+                </div>
+                <div class="slide"
+                    style="background-image: url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=2070&auto=format&fit=crop');">
+                </div>
+                <div class="slide"
+                    style="background-image: url('https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=2070&auto=format&fit=crop');">
+                </div>
+                <div class="slide"
+                    style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop');">
+                </div>
+                <div class="slide"
+                    style="background-image: url('https://images.unsplash.com/photo-1531403009284-440f080d1e12?q=80&w=2070&auto=format&fit=crop');">
+                </div>
+            </div>
+
+            <div class="hero-content">
+                <div class="badge">Next-Gen Technology</div>
+                <h1 class="hero-title">Shaping the Future with <br /><span class="gradient-text type-effect"></span>
+                </h1>
+                <p class="hero-subtitle">
+                    Transforming ideas into powerful, AI-driven solutions across Web, Mobile, and Desktop platforms.
+                    Experience engineering excellence at its finest.
+                </p>
+                <div class="hero-actions">
+                    <a href="#services" class="btn-primary">Explore Services <i class="fas fa-arrow-right"></i></a>
+                    <a href="#contact" class="btn-outline">Contact Us</a>
+                </div>
+            </div>
+
+            <div class="scroll-indicator">
+                <div class="mouse">
+                    <div class="wheel"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tech Marquee Section -->
+        <div class="tech-marquee-wrapper">
+            <div class="tech-marquee">
+                <div class="tech-marquee-content">
+                    <span><i class="fab fa-react" style="color: #61DAFB;"></i> React</span>
+                    <span><i class="fab fa-node-js" style="color: #339933;"></i> Node.js</span>
+                    <span><i class="fab fa-python" style="color: #3776AB;"></i> Python</span>
+                    <span><i class="fas fa-brain" style="color: #FF6F00;"></i> TensorFlow</span>
+                    <span><i class="fab fa-aws" style="color: #FF9900;"></i> AWS</span>
+                    <span><i class="fab fa-docker" style="color: #2496ED;"></i> Docker</span>
+                    <span><i class="fab fa-apple"></i> iOS</span>
+                    <span><i class="fab fa-android" style="color: #3DDC84;"></i> Android</span>
+                    <span><i class="fab fa-js" style="color: #F7DF1E;"></i> JavaScript</span>
+                    <!-- Duplicate for smooth infinite scroll -->
+                    <span><i class="fab fa-react" style="color: #61DAFB;"></i> React</span>
+                    <span><i class="fab fa-node-js" style="color: #339933;"></i> Node.js</span>
+                    <span><i class="fab fa-python" style="color: #3776AB;"></i> Python</span>
+                    <span><i class="fas fa-brain" style="color: #FF6F00;"></i> TensorFlow</span>
+                    <span><i class="fab fa-aws" style="color: #FF9900;"></i> AWS</span>
+                    <span><i class="fab fa-docker" style="color: #2496ED;"></i> Docker</span>
+                    <span><i class="fab fa-apple"></i> iOS</span>
+                    <span><i class="fab fa-android" style="color: #3DDC84;"></i> Android</span>
+                    <span><i class="fab fa-js" style="color: #F7DF1E;"></i> JavaScript</span>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <!-- Interactive AI Brain Section -->
+        <section id="ai-brain-section" class="scroll-ai-section">
+            <div class="ai-brain-container">
+                <canvas id="brain-canvas"></canvas>
+
+                <!-- Orbiting text popups/bubbles -->
+                <div class="brain-bubble bubble-1"><i class="fas fa-code"></i> Software Engineering</div>
+                <div class="brain-bubble bubble-2"><i class="fas fa-laptop-code"></i> Web Development</div>
+                <div class="brain-bubble bubble-3"><i class="fas fa-robot"></i> Artificial Intelligence</div>
+                <div class="brain-bubble bubble-4"><i class="fas fa-shield-alt"></i> Cyber Security</div>
+                <div class="brain-bubble bubble-5"><i class="fas fa-cloud"></i> Cloud Architecture</div>
+
+                <div class="scroll-instruction">
+                    <p>Scroll to explore <i class="fas fa-arrow-down"></i></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trusted By Section -->
+        <section id="trusted-by" class="trusted-by text-center">
+            <p class="section-subtitle">RECOGNIZED & TRUSTED BY INDUSTRY LEADERS</p>
+            <div class="client-logo-marquee">
+                <div class="logo-track">
+                    <div class="logo-item"><i class="fab fa-amazon"></i> Amazon Web Services</div>
+                    <div class="logo-item"><i class="fab fa-google"></i> Google Cloud</div>
+                    <div class="logo-item"><i class="fab fa-microsoft"></i> Microsoft Azure</div>
+                    <div class="logo-item"><i class="fab fa-stripe"></i> Stripe</div>
+                    <div class="logo-item"><i class="fab fa-slack"></i> Slack</div>
+                    <div class="logo-item"><i class="fab fa-salesforce"></i> Salesforce</div>
+                    <!-- Duplicates for smooth scroll -->
+                    <div class="logo-item"><i class="fab fa-amazon"></i> Amazon Web Services</div>
+                    <div class="logo-item"><i class="fab fa-google"></i> Google Cloud</div>
+                    <div class="logo-item"><i class="fab fa-microsoft"></i> Microsoft Azure</div>
+                    <div class="logo-item"><i class="fab fa-stripe"></i> Stripe</div>
+                    <div class="logo-item"><i class="fab fa-slack"></i> Slack</div>
+                    <div class="logo-item"><i class="fab fa-salesforce"></i> Salesforce</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Global Stats Section -->
+        <section id="stats" class="stats">
+            <div class="stats-grid">
+                <div class="stat-box glass-panel">
+                    <h3><span class="gradient-text">150+</span></h3>
+                    <p>Enterprise Projects Delivered</p>
+                </div>
+                <div class="stat-box glass-panel">
+                    <h3><span class="gradient-text">Zero</span></h3>
+                    <p>Data Breaches</p>
+                </div>
+                <div class="stat-box glass-panel">
+                    <h3><span class="gradient-text">99.9%</span></h3>
+                    <p>System Uptime</p>
+                </div>
+                <div class="stat-box glass-panel">
+                    <h3><span class="gradient-text">$50M+</span></h3>
+                    <p>Client Revenue Generated</p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Services Section -->
+        <section id="services" class="services">
+            <div class="section-header">
+                <h2>Our <span class="gradient-text">Services</span></h2>
+                <p>Comprehensive technology solutions tailored for forward-thinking businesses.</p>
+            </div>
+
+            <div class="services-grid">
+                <!-- Service Cards -->
+                <div class="service-card" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front glass-panel">
+                            <div class="icon-wrapper"><i class="fas fa-globe"></i></div>
+                            <h3>Web Applications</h3>
+                            <p>Scalable, high-performance web applications built on modern frameworks for an optimal
+                                user experience.</p>
+                            <div class="price-badge">Starts at $5,000</div>
+                            <div class="flip-hint"><i class="fas fa-sync-alt"></i> Tech Stack</div>
+                        </div>
+                        <div class="flip-card-back glass-panel">
+                            <h3>Tech Stack</h3>
+                            <ul class="tech-list">
+                                <li><i class="fab fa-react"></i> React / Next.js</li>
+                                <li><i class="fab fa-node-js"></i> Node.js</li>
+                                <li><i class="fab fa-vuejs"></i> Vue.js</li>
+                                <li><i class="fas fa-database"></i> MongoDB / SQL</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front glass-panel">
+                            <div class="icon-wrapper"><i class="fas fa-mobile-alt"></i></div>
+                            <h3>Mobile Apps</h3>
+                            <p>Native and cross-platform mobile solutions for iOS and Android that drive engagement.</p>
+                            <div class="price-badge">Starts at $8,000</div>
+                            <div class="flip-hint"><i class="fas fa-sync-alt"></i> Tech Stack</div>
+                        </div>
+                        <div class="flip-card-back glass-panel">
+                            <h3>Tech Stack</h3>
+                            <ul class="tech-list">
+                                <li><i class="fas fa-code"></i> Flutter</li>
+                                <li><i class="fab fa-swift"></i> Swift (iOS)</li>
+                                <li><i class="fab fa-android"></i> Kotlin / Java</li>
+                                <li><i class="fab fa-react"></i> React Native</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front glass-panel">
+                            <div class="icon-wrapper"><i class="fas fa-desktop"></i></div>
+                            <h3>Desktop Applications</h3>
+                            <p>Robust enterprise-grade desktop software tailored to streamline your complex workflows.
+                            </p>
+                            <div class="price-badge">Starts at $6,000</div>
+                            <div class="flip-hint"><i class="fas fa-sync-alt"></i> Tech Stack</div>
+                        </div>
+                        <div class="flip-card-back glass-panel">
+                            <h3>Tech Stack</h3>
+                            <ul class="tech-list">
+                                <li><i class="fab fa-js"></i> Electron.js</li>
+                                <li><i class="fab fa-microsoft"></i> C# / .NET</li>
+                                <li><i class="fab fa-python"></i> Python (PyQt)</li>
+                                <li><i class="fas fa-microchip"></i> C++ / Qt</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front glass-panel">
+                            <div class="icon-wrapper"><i class="fas fa-brain"></i></div>
+                            <h3>AI Solutions</h3>
+                            <p>Cutting-edge artificial intelligence implementations to keep you ahead of the digital
+                                curve.</p>
+                            <div class="price-badge">Starts at $10,000</div>
+                            <div class="flip-hint"><i class="fas fa-sync-alt"></i> Tech Stack</div>
+                        </div>
+                        <div class="flip-card-back glass-panel">
+                            <h3>Capabilities</h3>
+                            <ul class="tech-list">
+                                <li><i class="fas fa-robot"></i> TensorFlow / PyTorch</li>
+                                <li><i class="fas fa-comment-dots"></i> OpenAI API (LLMs)</li>
+                                <li><i class="fas fa-eye"></i> Computer Vision</li>
+                                <li><i class="fas fa-language"></i> NLP Models</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front glass-panel">
+                            <div class="icon-wrapper"><i class="fas fa-shopping-cart"></i></div>
+                            <h3>E-Commerce</h3>
+                            <p>Secure, conversion-optimized eCommerce platforms built to maximize your online retail
+                                sales.</p>
+                            <div class="price-badge">Starts at $4,000</div>
+                            <div class="flip-hint"><i class="fas fa-sync-alt"></i> Tech Stack</div>
+                        </div>
+                        <div class="flip-card-back glass-panel">
+                            <h3>Tech Stack</h3>
+                            <ul class="tech-list">
+                                <li><i class="fab fa-js"></i> Headless Node/React</li>
+                                <li><i class="fas fa-shopping-bag"></i> Magento</li>
+                                <li><i class="fab fa-wordpress"></i> WooCommerce</li>
+                                <li><i class="fas fa-bolt"></i> Fast Next.js Frontend</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front glass-panel">
+                            <div class="icon-wrapper"><i class="fab fa-shopify"></i></div>
+                            <h3>Shopify Development</h3>
+                            <p>Custom Shopify store design, development, and integration for a seamless shopping
+                                experience.</p>
+                            <div class="price-badge">Starts at $2,500</div>
+                            <div class="flip-hint"><i class="fas fa-sync-alt"></i> Tech Stack</div>
+                        </div>
+                        <div class="flip-card-back glass-panel">
+                            <h3>Capabilities</h3>
+                            <ul class="tech-list">
+                                <li><i class="fab fa-shopify"></i> Premium Liquid Themes</li>
+                                <li><i class="fas fa-plug"></i> Custom Shopify Apps</li>
+                                <li><i class="fas fa-exchange-alt"></i> Storefront API Integration</li>
+                                <li><i class="fas fa-chart-line"></i> Checkout Optimization</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front glass-panel">
+                            <div class="icon-wrapper"><i class="fas fa-paint-brush"></i></div>
+                            <h3>UI/UX Design</h3>
+                            <p>Stunning, user-centric interfaces designed to provide intuitive and memorable
+                                experiences.</p>
+                            <div class="price-badge">Starts at $1,500</div>
+                            <div class="flip-hint"><i class="fas fa-sync-alt"></i> Tools</div>
+                        </div>
+                        <div class="flip-card-back glass-panel">
+                            <h3>Tools</h3>
+                            <ul class="tech-list">
+                                <li><i class="fab fa-figma"></i> Figma</li>
+                                <li><i class="fas fa-pen-nib"></i> Adobe Creative Suite</li>
+                                <li><i class="fas fa-pencil-ruler"></i> Wireframing</li>
+                                <li><i class="fas fa-users"></i> Behavioral Research</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front glass-panel">
+                            <div class="icon-wrapper"><i class="fas fa-robot"></i></div>
+                            <h3>AI Automation</h3>
+                            <p>Intelligent process automation to optimize operations and reduce manual overhead
+                                significantly.</p>
+                            <div class="price-badge">Starts at $3,500</div>
+                            <div class="flip-hint"><i class="fas fa-sync-alt"></i> Tech Stack</div>
+                        </div>
+                        <div class="flip-card-back glass-panel">
+                            <h3>Capabilities</h3>
+                            <ul class="tech-list">
+                                <li><i class="fas fa-bolt"></i> Zapier / Make (Integromat)</li>
+                                <li><i class="fab fa-python"></i> Automated Python Scripts</li>
+                                <li><i class="fas fa-cogs"></i> RPA Tools</li>
+                                <li><i class="fas fa-project-diagram"></i> Workflow Design</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front glass-panel">
+                            <div class="icon-wrapper"><i class="fas fa-cloud"></i></div>
+                            <h3>Cloud Computing</h3>
+                            <p>Scalable cloud infrastructure, serverless deployments, and optimal DevOps pipelines.</p>
+                            <div class="price-badge">Starts at $2,000 / mo</div>
+                            <div class="flip-hint"><i class="fas fa-sync-alt"></i> Tech Stack</div>
+                        </div>
+                        <div class="flip-card-back glass-panel">
+                            <h3>Capabilities</h3>
+                            <ul class="tech-list">
+                                <li><i class="fab fa-aws"></i> Amazon Web Services</li>
+                                <li><i class="fab fa-google"></i> Google Cloud Platform</li>
+                                <li><i class="fab fa-docker"></i> Docker / Kubernetes</li>
+                                <li><i class="fas fa-server"></i> CI/CD Pipelines</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front glass-panel">
+                            <div class="icon-wrapper"><i class="fas fa-shield-alt"></i></div>
+                            <h3>Cybersecurity</h3>
+                            <p>Military-grade data protection, penetration testing, and absolute threat mitigation.</p>
+                            <div class="price-badge">Starts at $5,000</div>
+                            <div class="flip-hint"><i class="fas fa-sync-alt"></i> Tools</div>
+                        </div>
+                        <div class="flip-card-back glass-panel">
+                            <h3>Tools</h3>
+                            <ul class="tech-list">
+                                <li><i class="fas fa-lock"></i> End-to-end Encryption</li>
+                                <li><i class="fas fa-bug"></i> Vulnerability Assessing</li>
+                                <li><i class="fas fa-user-secret"></i> Ethical Hacking</li>
+                                <li><i class="fas fa-network-wired"></i> Network Sec</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front glass-panel">
+                            <div class="icon-wrapper"><i class="fab fa-ethereum"></i></div>
+                            <h3>Web3 & Crypto</h3>
+                            <p>Decentralized application development, smart contracts, and secure blockchain ledgers.
+                            </p>
+                            <div class="price-badge">Starts at $12,000</div>
+                            <div class="flip-hint"><i class="fas fa-sync-alt"></i> Tech Stack</div>
+                        </div>
+                        <div class="flip-card-back glass-panel">
+                            <h3>Tech Stack</h3>
+                            <ul class="tech-list">
+                                <li><i class="fab fa-ethereum"></i> Solidity / Ethereum</li>
+                                <li><i class="fas fa-link"></i> Rust / Solana</li>
+                                <li><i class="fas fa-cubes"></i> Smart Contracts</li>
+                                <li><i class="fas fa-wallet"></i> Wallet Integrations</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front glass-panel">
+                            <div class="icon-wrapper"><i class="fas fa-vial"></i></div>
+                            <h3>Quality Assurance</h3>
+                            <p>Rigorous automated and manual testing to ensure flawless, bug-free software releases.</p>
+                            <div class="price-badge">Starts at $2,000</div>
+                            <div class="flip-hint"><i class="fas fa-sync-alt"></i> Tools</div>
+                        </div>
+                        <div class="flip-card-back glass-panel">
+                            <h3>Tools</h3>
+                            <ul class="tech-list">
+                                <li><i class="fas fa-spider"></i> Selenium / Cypress</li>
+                                <li><i class="fas fa-vial"></i> Jest / Mocha</li>
+                                <li><i class="fas fa-check-double"></i> API Testing</li>
+                                <li><i class="fas fa-tachometer-alt"></i> Load Stress Tests</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Case Studies -->
+        <section id="case-studies" class="case-studies">
+            <div class="section-header">
+                <h2>Featured <span class="gradient-text">Case Studies</span></h2>
+                <p>Real-world impact driven by our advanced software architectures.</p>
+            </div>
+            <div class="case-grid">
+                <div class="case-card glass-panel">
+                    <div class="case-content">
+                        <h3><span class="gradient-text">FinTech Horizon</span></h3>
+                        <p>Scaled a high-frequency trading platform to handle 50M+ requests/sec with an average latency
+                            of <10ms.< /p>
+                                <div class="case-metrics">
+                                    <span><i class="fas fa-chart-line"></i> 300% ROI</span>
+                                    <span><i class="fas fa-tachometer-alt"></i> 10ms Latency</span>
+                                </div>
+                                <a href="#" class="btn-outline btn-outline-sm">Read Study</a>
+                    </div>
+                </div>
+                <div class="case-card glass-panel">
+                    <div class="case-content">
+                        <h3><span class="gradient-text">MediSync System</span></h3>
+                        <p>Developed a HIPAA-compliant AI diagnostic tool deployed across 500+ clinics spanning North
+                            America.</p>
+                        <div class="case-metrics">
+                            <span><i class="fas fa-hospital"></i> 500+ Clinics</span>
+                            <span><i class="fas fa-shield-alt"></i> HIPAA Sec</span>
+                        </div>
+                        <a href="#" class="btn-outline btn-outline-sm">Read Study</a>
+                    </div>
+                </div>
+                <div class="case-card glass-panel">
+                    <div class="case-content">
+                        <h3><span class="gradient-text">AeroLogistics AI</span></h3>
+                        <p>Implemented predictive AI modeling reducing global freight delay instances by 42% for a top
+                            airline.</p>
+                        <div class="case-metrics">
+                            <span><i class="fas fa-plane-departure"></i> 42% Delay Reduction</span>
+                        </div>
+                        <a href="#" class="btn-outline btn-outline-sm">Read Study</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section id="products" class="products">
+            <div class="section-header">
+                <h2>Our <span class="gradient-text">Products</span></h2>
+                <p>Explore our premium applications live on global marketplaces.</p>
+            </div>
+
+            <div class="products-grid">
+                <!-- Product 1 -->
+                <div class="product-card glass-panel">
+                    <div class="product-visual">
+                        <div class="mockup-placeholder"><i class="fab fa-apple"></i> App Store featured</div>
+                    </div>
+                    <div class="product-info">
+                        <h3>NeuroFlow Analytics</h3>
+                        <p>Advanced predictive analytics for enterprise data streams. Currently powering hundreds of
+                            businesses.</p>
+                        <div class="product-links">
+                            <a href="#" class="store-btn"><i class="fab fa-apple"></i> App Store</a>
+                            <a href="#" class="store-btn"><i class="fab fa-google-play"></i> Play Store</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card glass-panel">
+                    <div class="product-visual">
+                        <div class="mockup-placeholder"><i class="fab fa-google-play"></i> Top Charting</div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Synapse Manager</h3>
+                        <p>Complete workspace automation tool leveraging machine learning to schedule your day.</p>
+                        <div class="product-links">
+                            <a href="#" class="store-btn"><i class="fab fa-google-play"></i> Play Store</a>
+                            <a href="#" class="store-btn"><i class="fab fa-microsoft"></i> Windows Store</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card glass-panel">
+                    <div class="product-visual">
+                        <div class="mockup-placeholder"><i class="fas fa-cloud"></i> Web Suite</div>
+                    </div>
+                    <div class="product-info">
+                        <h3>CogniCommerce</h3>
+                        <p>AI-driven headless e-commerce engine that effortlessly integrates with any frontend.</p>
+                        <div class="product-links">
+                            <a href="#" class="store-btn"><i class="fas fa-globe"></i> Web Platform</a>
+                            <a href="#" class="store-btn"><i class="fab fa-shopify"></i> Shopify App</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card glass-panel">
+                    <div class="product-visual">
+                        <div class="mockup-placeholder"><i class="fas fa-shield-alt"></i> Enterprise Tool</div>
+                    </div>
+                    <div class="product-info">
+                        <h3>CyberShield AI</h3>
+                        <p>Real-time threat detection and autonomous network security using deep neural networks.</p>
+                        <div class="product-links"><a href="#" class="store-btn"><i class="fas fa-globe"></i> Web
+                                Access</a></div>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="product-card glass-panel">
+                    <div class="product-visual">
+                        <div class="mockup-placeholder"><i class="fab fa-ethereum"></i> Web3 dApp</div>
+                    </div>
+                    <div class="product-info">
+                        <h3>MetaVerse Builder</h3>
+                        <p>Complete SDK suite to forge immersive virtual environments and NFT-based land governance.</p>
+                        <div class="product-links"><a href="#" class="store-btn"><i class="fab fa-github"></i> Developer
+                                Portal</a></div>
+                    </div>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="product-card glass-panel">
+                    <div class="product-visual">
+                        <div class="mockup-placeholder"><i class="fas fa-heartbeat"></i> Medical App</div>
+                    </div>
+                    <div class="product-info">
+                        <h3>HealthSync Pro</h3>
+                        <p>HIPAA-compliant telemedicine routing app combining live chat with AI symptom checkers.</p>
+                        <div class="product-links"><a href="#" class="store-btn"><i class="fab fa-apple"></i> App
+                                Store</a><a href="#" class="store-btn"><i class="fab fa-google-play"></i> Play Store</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 7 -->
+                <div class="product-card glass-panel">
+                    <div class="product-visual">
+                        <div class="mockup-placeholder"><i class="fas fa-graduation-cap"></i> EdTech Suite</div>
+                    </div>
+                    <div class="product-info">
+                        <h3>EduLearn Matrix</h3>
+                        <p>Adaptive learning platform customizing curriculum pacing according to student neural
+                            feedback.</p>
+                        <div class="product-links"><a href="#" class="store-btn"><i class="fas fa-globe"></i> Platform
+                                Access</a></div>
+                    </div>
+                </div>
+
+                <!-- Product 8 -->
+                <div class="product-card glass-panel">
+                    <div class="product-visual">
+                        <div class="mockup-placeholder"><i class="fas fa-truck-moving"></i> B2B Software</div>
+                    </div>
+                    <div class="product-info">
+                        <h3>SmartLogistics AI</h3>
+                        <p>Supply chain optimizer drastically reducing freight costs using predictive weather and
+                            traffic models.</p>
+                        <div class="product-links"><a href="#" class="store-btn"><i class="fab fa-microsoft"></i>
+                                Windows Store</a></div>
+                    </div>
+                </div>
+
+                <!-- Product 9 -->
+                <div class="product-card glass-panel">
+                    <div class="product-visual">
+                        <div class="mockup-placeholder"><i class="fas fa-chart-line"></i> FinTech App</div>
+                    </div>
+                    <div class="product-info">
+                        <h3>FinTech Quantum</h3>
+                        <p>Algorithmic trading bot that identifies micro-arbitrage opportunities across multiple global
+                            exchanges.</p>
+                        <div class="product-links"><a href="#" class="store-btn"><i class="fab fa-apple"></i> App
+                                Store</a></div>
+                    </div>
+                </div>
+
+                <!-- Product 10 -->
+                <div class="product-card glass-panel">
+                    <div class="product-visual">
+                        <div class="mockup-placeholder"><i class="fas fa-leaf"></i> AgriTech IoT</div>
+                    </div>
+                    <div class="product-info">
+                        <h3>AgriGrow AI</h3>
+                        <p>IoT sensor dashboard managing greenhouse irrigation and fertilization completely
+                            autonomously.</p>
+                        <div class="product-links"><a href="#" class="store-btn"><i class="fab fa-google-play"></i> Play
+                                Store</a></div>
+                    </div>
+                </div>
+
+                <!-- Product 11 -->
+                <div class="product-card glass-panel">
+                    <div class="product-visual">
+                        <div class="mockup-placeholder"><i class="fas fa-link"></i> ERP Solution</div>
+                    </div>
+                    <div class="product-info">
+                        <h3>BlockTrace ERP</h3>
+                        <p>Immutable ledger ecosystem for tracking high-value enterprise assets from manufacturing to
+                            delivery.</p>
+                        <div class="product-links"><a href="#" class="store-btn"><i class="fas fa-globe"></i> Enterprise
+                                Demo</a></div>
+                    </div>
+                </div>
+
+                <!-- Product 12 -->
+                <div class="product-card glass-panel">
+                    <div class="product-visual">
+                        <div class="mockup-placeholder"><i class="fas fa-pencil-ruler"></i> Design Tool</div>
+                    </div>
+                    <div class="product-info">
+                        <h3>NeuroVision Studio</h3>
+                        <p>Generative AI image and 3D asset creator designed explicitly for AAA game production
+                            environments.</p>
+                        <div class="product-links"><a href="#" class="store-btn"><i class="fab fa-apple"></i> Mac App
+                                Store</a></div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about" class="about">
+            <div class="about-container glass-panel">
+                <div class="about-content">
+                    <h2><span class="gradient-text">About</span> NeuroBrainTec</h2>
+                    <p>NeuroBrainTec is a vanguard technology firm dedicated to bridging the gap between complex AI
+                        logic and intuitive human experiences. Founded by visionary engineers, our mission is to empower
+                        global enterprises with highly scalable, master-level software architectures that drive extreme
+                        growth and automation.</p>
+                    <p style="margin-top: 1rem; color: var(--text-secondary); font-size: 0.95rem;">With millions of data
+                        points analyzed and comprehensive enterprise deployments worldwide, our expertise spans across
+                        Web3, Deep Learning, Edge Computing, and beyond. We don't just write code—we engineer
+                        intelligence.</p>
+                    <ul class="about-features" style="margin-top: 2rem;">
+                        <li><i class="fas fa-check-circle"></i> Custom AI Models & Machine Learning Processors</li>
+                        <li><i class="fas fa-check-circle"></i> State-of-the-art Enterprise Architecture</li>
+                        <li><i class="fas fa-check-circle"></i> End-to-end Cross-Platform Development Ecosystem</li>
+                        <li><i class="fas fa-check-circle"></i> 24/7 Global Infrastructure & DevOps Support</li>
+                    </ul>
+                </div>
+                <div class="about-visual">
+                    <div class="sphere-animation">
+                        <!-- CSS animated rings -->
+                        <div class="ring"></div>
+                        <div class="ring delay-1"></div>
+                        <div class="ring delay-2"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Partnerships -->
+        <section id="partnerships" class="partnerships">
+            <div class="partners-container glass-panel">
+                <div class="partners-info">
+                    <h2>Brand <span class="gradient-text">Collaborations</span></h2>
+                    <p>We actively collaborate with industry titans to bring native, hardware-accelerated integrations
+                        to our enterprise clients. Let's engineer the future together.</p>
+                    <a href="#contact" class="btn-primary">Become a Partner</a>
+                </div>
+                <div class="partners-grid-visual">
+                    <div class="partner-box"><i class="fab fa-product-hunt"></i> Product Hunt Featured</div>
+                    <div class="partner-box"><i class="fab fa-aws"></i> AWS Advanced Tier</div>
+                    <div class="partner-box"><i class="fab fa-microsoft"></i> Microsoft Partner</div>
+                    <div class="partner-box"><i class="fab fa-react"></i> Meta Open Source</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Global Offices -->
+        <section id="global-offices" class="global-offices">
+            <div class="section-header">
+                <h2>Our <span class="gradient-text">Global Presence</span></h2>
+                <p>Strategic locations across the globe to support enterprise clients 24/7.</p>
+            </div>
+            <div class="office-grid">
+                <div class="office-card glass-panel text-center">
+                    <i class="fas fa-map-marker-alt gradient-text fa-2x"></i>
+                    <h3>Silicon Valley</h3>
+                    <p>Global Headquarters<br>San Jose, CA, USA</p>
+                </div>
+                <div class="office-card glass-panel text-center">
+                    <i class="fas fa-map-marker-alt gradient-text fa-2x"></i>
+                    <h3>London</h3>
+                    <p>European Hub<br>Canary Wharf, UK</p>
+                </div>
+                <div class="office-card glass-panel text-center">
+                    <i class="fas fa-map-marker-alt gradient-text fa-2x"></i>
+                    <h3>Singapore</h3>
+                    <p>APAC Operations<br>Marina Bay, Singapore</p>
+                </div>
+                <div class="office-card glass-panel text-center">
+                    <i class="fas fa-map-marker-alt gradient-text fa-2x"></i>
+                    <h3>Dubai</h3>
+                    <p>MENA Hub<br>Internet City, UAE</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Team Section -->
+        <section id="team" class="team-section">
+            <div class="section-header text-center" style="margin-bottom: 4rem;">
+                <h2>Meet the <span class="gradient-text">Leadership</span></h2>
+                <p style="color: var(--text-secondary); margin-top: 1rem;">The visionaries and elite engineers driving
+                    NeuroBrainTec's innovations.</p>
+            </div>
+
+            <div class="team-grid">
+                <!-- Team Member 1 -->
+                <div class="team-card glass-panel text-center team-tilt" data-tilt data-tilt-max="15"
+                    data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.2">
+                    <div class="team-img-wrapper">
+                        <img src="./images/mehedi.jpg" alt="CEO" class="team-img">
+                    </div>
+                    <h3>Mehedi Hasan Mridul</h3>
+                    <p class="team-role gradient-text">Founder & CEO</p>
+                    <div class="team-socials">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+
+                <!-- Team Member 2 -->
+                <div class="team-card glass-panel text-center team-tilt" data-tilt data-tilt-max="15"
+                    data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.2">
+                    <div class="team-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=500&q=80"
+                            alt="CTO" class="team-img">
+                    </div>
+                    <h3>Sarah Jenkins</h3>
+                    <p class="team-role gradient-text">Chief Technology Officer</p>
+                    <div class="team-socials">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+
+                <!-- Team Member 3 -->
+                <div class="team-card glass-panel text-center team-tilt" data-tilt data-tilt-max="15"
+                    data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.2">
+                    <div class="team-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=500&q=80"
+                            alt="VP of Engineering" class="team-img">
+                    </div>
+                    <h3>David Chen</h3>
+                    <p class="team-role gradient-text">VP of AI Engineering</p>
+                    <div class="team-socials">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+
+                <!-- Team Member 4 -->
+                <div class="team-card glass-panel text-center team-tilt" data-tilt data-tilt-max="15"
+                    data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.2">
+                    <div class="team-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=500&q=80"
+                            alt="VP of Product" class="team-img">
+                    </div>
+                    <h3>Elena Rossi</h3>
+                    <p class="team-role gradient-text">Head of Product Design</p>
+                    <div class="team-socials">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-dribbble"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Careers -->
+        <section id="careers" class="careers text-center">
+            <div class="career-box glass-panel">
+                <h2><span class="gradient-text">Join Our Team</span></h2>
+                <p>We're constantly looking for elite engineers, visionary designers, and strategic thinkers to push the
+                    boundaries of technology. Work on extreme-scale projects from day one.</p>
+                <div class="career-stats">
+                    <span class="pill-badge"><i class="fas fa-laptop-house"></i> 100% Remote Options</span>
+                    <span class="pill-badge"><i class="fas fa-chart-pie"></i> Equity & Stock Options</span>
+                    <span class="pill-badge"><i class="fas fa-graduation-cap"></i> Continuous Learning</span>
+                </div>
+                <a href="#contact" class="btn-primary" style="margin-top: 2rem;">Explore Open Roles <i
+                        class="fas fa-arrow-right"></i></a>
+            </div>
+        </section>
+
+        <!-- Drive Growth CTA -->
+        <section id="cta" class="cta-section text-center">
+            <h2>Drive Extreme Growth with Our <span class="gradient-text">Core Capabilities</span></h2>
+            <p>Don't let outdated technological infrastructure limit your potential. Partner with NeuroBrainTec to
+                architect systems that scale endlessly and perform flawlessly.</p>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="contact-container glass-panel">
+                <div class="contact-info">
+                    <h2>Let's build something <br><span class="gradient-text">extraordinary</span> together.</h2>
+                    <p>Have a project in mind or want to learn more about our services? Reach out to us directly.</p>
+
+                    <div class="contact-details">
+                        <div class="detail-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email Us</h4>
+                                <span><a href="mailto:hello@neurobraintec.com"
+                                        style="color: inherit; text-decoration: none;">hello@neurobraintec.com</a></span>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Headquarters</h4>
+                                <span>Silicon Valley, CA, USA</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <form id="contact-form" class="contact-form">
+                    <div class="input-group">
+                        <input type="text" name="user_name" id="user_name" placeholder="Your Name" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="email" name="user_email" id="user_email" placeholder="Your Email" required>
+                    </div>
+                    <div class="input-group">
+                        <select name="user_service" id="user_service" required>
+                            <option value="" disabled selected>Service of Interest</option>
+                            <option value="web">Web Application</option>
+                            <option value="mobile">Mobile App</option>
+                            <option value="ai">AI Solutions</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <textarea rows="4" name="message" id="message" placeholder="Tell us about your project"
+                            required></textarea>
+                    </div>
+                    <button type="submit" id="submit-btn" class="btn-primary w-100">Send Message <i
+                            class="fas fa-paper-plane"></i></button>
+                    <p id="form-status" style="display:none; text-align:center; margin-top:1rem; font-weight:600;"></p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <span class="gradient-text">NeuroBrain</span>Tec
+                </a>
+                <p class="footer-desc">Architecting robust, scalable, AI-powered solutions to drive the next generation
+                    of global technological enterprises.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-discord"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Company</h4>
+                <a href="#about">About Us</a>
+                <a href="#services">Our Services</a>
+                <a href="#products">Products</a>
+                <a href="#contact">Contact</a>
+            </div>
+
+            <div class="footer-col">
+                <h4>Expertise</h4>
+                <a href="#services">Cloud Computing</a>
+                <a href="#services">AI Automation</a>
+                <a href="#services">Cybersecurity</a>
+                <a href="#services">Web3 & dApps</a>
+            </div>
+
+            <div class="footer-newsletter">
+                <h4>Stay Updated</h4>
+                <p>Subscribe to our newsletter for the latest tech insights.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit" class="btn-primary-sm"
+                        style="padding: 0 1rem; height: 100%; border-radius: 0 8px 8px 0;"><i
+                            class="fas fa-arrow-right"></i></button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="copyright">
+                &copy; 2026 NeuroBrainTec. All rights reserved.
+            </div>
+            <div class="legal-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Three.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+
+    <!-- Cookie Popup -->
+    <div id="cookie-popup" class="cookie-popup glass-panel">
+        <div class="cookie-content">
+            <h4><i class="fas fa-cookie-bite"></i> Cookie Preferences</h4>
+            <p>We use cookies to enhance your browsing experience, serve personalized ads, and analyze our traffic to
+                deliver extreme performance upgrades. By clicking "Accept All", you consent to our use of cookies.</p>
+        </div>
+        <div class="cookie-actions">
+            <button id="accept-cookies" class="btn-primary-sm">Accept All</button>
+            <button id="decline-cookies" class="btn-outline"
+                style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Decline</button>
+        </div>
+    </div>
+
+    <!-- Welcome Popup -->
+    <div id="welcome-overlay" class="welcome-overlay">
+        <div class="welcome-popup glass-panel">
+            <button id="close-welcome" class="close-btn"><i class="fas fa-times"></i></button>
+            <div class="welcome-icon">
+                <i class="fas fa-rocket"></i>
+            </div>
+            <h2>Welcome to <span class="gradient-text">NeuroBrainTec</span></h2>
+            <p>Experience the ultimate standard in AI and enterprise software architecture. We are glad to have you on
+                board to shape the future together.</p>
+            <button id="explore-btn" class="btn-primary w-100" style="margin-top: 1.5rem;">Explore Now <i
+                    class="fas fa-arrow-right"></i></button>
+        </div>
+    </div>
+
+    <!-- Vanilla Tilt for 3D Hover Effects -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+
+    <!-- GSAP for Scroll Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script src="./js/app.js"></script>
+</body>
+
+</html>

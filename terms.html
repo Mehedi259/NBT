@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Terms of Service - NeuroBrainTec">
+    <title>Terms of Service | NeuroBrainTec</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/style.css">
+    
+    <style>
+        /* Fallback loader styles */
+        #loader {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: #050505;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+        .spinner {
+            width: 50px; height: 50px;
+            border: 3px solid rgba(255,255,255,0.1);
+            border-top-color: #00f0ff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+        
+        .legal-content {
+            padding: 150px 20px 80px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .legal-content h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+        .legal-content .last-updated {
+            color: var(--accent-1);
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            display: block;
+        }
+        .legal-content h2 {
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        .legal-content p, .legal-content ul {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+        .legal-content ul {
+            padding-left: 1.5rem;
+        }
+        .legal-content li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="custom-cursor"></div>
+    <div class="cursor-follower"></div>
+    <div id="loader"><div class="spinner"></div></div>
+
+    <!-- 3D Background Canvas -->
+    <canvas id="webgl-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="gradient-text">NeuroBrain</span>Tec
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#products">Products</a></li>
+                <li><a href="index.html#contact" class="btn-primary-sm">Get in Touch</a></li>
+                <li>
+                    <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme">
+                        <i class="fas fa-moon" id="theme-icon"></i>
+                    </button>
+                </li>
+            </ul>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="legal-content">
+        <div class="glass-panel" style="padding: 3rem; text-align: left;">
+            <h1>Terms of <span class="gradient-text">Service</span></h1>
+            <span class="last-updated">Last Updated: April 2026</span>
+            
+            <p>Welcome to NeuroBrainTec! By accessing this website, we assume you accept these terms and conditions. Do not continue to use NeuroBrainTec if you do not agree to take all of the terms and conditions stated on this page.</p>
+            
+            <h2>1. Intellectual Property Rights</h2>
+            <p>Unless otherwise stated, NeuroBrainTec and/or its licensors own the intellectual property rights for all material on NeuroBrainTec. All intellectual property rights are reserved. You may access this from NeuroBrainTec for your own personal use subjected to restrictions set in these terms and conditions.</p>
+            
+            <h2>2. Restrictions</h2>
+            <p>You are specifically restricted from all of the following:</p>
+            <ul>
+                <li>Publishing any website material in any other media without prior written consent.</li>
+                <li>Selling, sublicensing, and/or otherwise commercializing any AI algorithms, software architectures, or application code provided by us unless separately licensed.</li>
+                <li>Using this Website in any way that is or may be damaging to this Website.</li>
+                <li>Using this Website in any way that impacts user access to this Website.</li>
+            </ul>
+            
+            <h2>3. Service Delivery and Liability</h2>
+            <p>In no event shall NeuroBrainTec, nor any of its officers, directors, and employees, be held liable for anything arising out of or in any way connected with your use of this Website or the proprietary software/services we develop for your enterprise, unless bound by a separate SLA (Service Level Agreement).</p>
+            
+            <h2>4. Indemnification</h2>
+            <p>You hereby indemnify to the fullest extent NeuroBrainTec from and against any and/or all liabilities, costs, demands, causes of action, damages, and expenses arising in any way related to your breach of any of the provisions of these Terms.</p>
+            
+            <h2>5. Variation of Terms</h2>
+            <p>NeuroBrainTec is permitted to revise these Terms at any time as it sees fit, and by using this Website you are expected to review these Terms on a regular basis.</p>
+            
+            <h2>6. Governing Law & Jurisdiction</h2>
+            <p>These Terms will be governed by and interpreted in accordance with the laws of the State of California, USA, and you submit to the non-exclusive jurisdiction of the state and federal courts located in the USA for the resolution of any disputes.</p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">
+                    <span class="gradient-text">NeuroBrain</span>Tec
+                </a>
+                <p class="footer-desc">Architecting robust, scalable, AI-powered solutions to drive the next generation of global technological enterprises.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-discord"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Company</h4>
+                <a href="index.html#about">About Us</a>
+                <a href="index.html#services">Our Services</a>
+                <a href="index.html#products">Products</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+
+            <div class="footer-col">
+                <h4>Expertise</h4>
+                <a href="index.html#services">Cloud Computing</a>
+                <a href="index.html#services">AI Automation</a>
+                <a href="index.html#services">Cybersecurity</a>
+                <a href="index.html#services">Web3 & dApps</a>
+            </div>
+
+            <div class="footer-newsletter">
+                <h4>Stay Updated</h4>
+                <p>Subscribe to our newsletter for the latest tech insights.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit" class="btn-primary-sm" style="padding: 0 1rem; height: 100%; border-radius: 0 8px 8px 0;"><i class="fas fa-arrow-right"></i></button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="copyright">
+                &copy; 2026 NeuroBrainTec. All rights reserved.
+            </div>
+            <div class="legal-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Three.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    
+    <!-- Cookie Popup -->
+    <div id="cookie-popup" class="cookie-popup glass-panel">
+        <div class="cookie-content">
+            <h4><i class="fas fa-cookie-bite"></i> Cookie Preferences</h4>
+            <p>We use cookies to enhance your browsing experience, serve personalized ads, and analyze our traffic to deliver extreme performance upgrades. By clicking "Accept All", you consent to our use of cookies.</p>
+        </div>
+        <div class="cookie-actions">
+            <button id="accept-cookies" class="btn-primary-sm">Accept All</button>
+            <button id="decline-cookies" class="btn-outline" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Decline</button>
+        </div>
+    </div>
+
+    <!-- Main JavaScript -->
+    <script src="./js/app.js"></script>
+</body>
+</html>
