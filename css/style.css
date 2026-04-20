@@ -1506,43 +1506,592 @@ body.cursor-hover .cursor-follower {
 }
 
 
-/* Media Queries */
+/* ============================================
+   RESPONSIVE DESIGN — FULL MOBILE SUPPORT
+   ============================================ */
+
+/* ---- Tablet & Small Desktop (max-width: 968px) ---- */
 @media (max-width: 968px) {
+    section {
+        padding: 5rem 1.5rem;
+    }
+
+    .section-header {
+        margin-bottom: 3rem;
+    }
+
+    #navbar {
+        width: 95%;
+        padding: 0.8rem 1.2rem;
+    }
+
+    .nav-links {
+        gap: 1.5rem;
+    }
+
     .contact-container {
         grid-template-columns: 1fr;
         padding: 2rem;
+        gap: 2.5rem;
     }
+
     .about-container {
         grid-template-columns: 1fr;
+        gap: 2rem;
     }
+
     .partners-container {
         grid-template-columns: 1fr;
         padding: 2rem;
         text-align: center;
+        gap: 2rem;
     }
-    #navbar {
-        width: 95%;
-        padding: 1rem;
+
+    .partners-grid-visual {
+        grid-template-columns: 1fr 1fr;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+
+    .career-box {
+        padding: 3rem 2rem;
+    }
+
+    .career-box h2 {
+        font-size: 2.2rem;
+    }
+
+    .cta-section h2 {
+        font-size: 2.2rem;
+    }
+
+    .products-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+
+    .stat-box h3 {
+        font-size: 2.5rem;
+    }
+
+    /* Team */
+    .team-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .team-section {
+        padding: 5rem 1.5rem;
     }
 }
 
+/* ---- Mobile (max-width: 768px) ---- */
 @media (max-width: 768px) {
+    /* Disable custom cursor on touch devices */
+    body {
+        cursor: auto !important;
+    }
+    .custom-cursor, .cursor-follower {
+        display: none !important;
+    }
+
+    section {
+        padding: 4rem 1rem;
+    }
+
+    .section-header {
+        margin-bottom: 2.5rem;
+    }
+
+    .section-header h2 {
+        font-size: 2rem;
+    }
+
+    .section-header p {
+        font-size: 1rem;
+    }
+
+    /* --- Navbar & Mobile Menu --- */
+    #navbar {
+        width: 96%;
+        padding: 0.7rem 1rem;
+        border-radius: 16px;
+        top: 10px;
+    }
+
+    .logo {
+        font-size: 1.4rem;
+    }
+
     .nav-links {
         display: none;
+        position: fixed;
+        top: 0; left: 0;
+        width: 100vw; height: 100vh;
+        background: rgba(var(--bg-rgb), 0.97);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2.5rem;
+        z-index: 999;
     }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links a {
+        font-size: 1.4rem;
+        font-weight: 600;
+    }
+
     .mobile-menu-btn {
         display: block;
+        background: transparent;
+        border: none;
+        color: var(--text-primary);
+        font-size: 1.5rem;
+        cursor: pointer;
+        z-index: 1001;
     }
+
+    /* Theme toggle in mobile */
+    .theme-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+    }
+
+    /* --- Hero --- */
+    .hero {
+        min-height: 100vh;
+        padding: 0 1rem;
+    }
+
+    .hero-title {
+        font-size: clamp(2rem, 8vw, 3rem);
+        letter-spacing: -0.5px;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+
     .hero-actions {
         flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+        align-items: center;
     }
+
+    .hero-actions .btn-primary,
+    .hero-actions .btn-outline {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .scroll-indicator {
+        display: none;
+    }
+
+    /* --- Tech Marquee --- */
+    .tech-marquee-content {
+        gap: 2rem;
+    }
+
+    .tech-marquee-content span {
+        font-size: 1.1rem;
+    }
+
+    .tech-marquee-content i {
+        font-size: 1.5rem;
+    }
+
+    /* --- Services --- */
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-card {
+        height: 300px;
+    }
+
+    /* --- Products --- */
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .product-visual {
+        height: 160px;
+    }
+
+    .product-info {
+        padding: 1.5rem;
+    }
+
+    /* --- Case Studies --- */
+    .case-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .case-card {
+        min-height: auto;
+        padding: 2rem;
+    }
+
+    /* --- Stats --- */
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .stat-box h3 {
+        font-size: 2rem;
+    }
+
+    /* --- About --- */
+    .about-container {
+        grid-template-columns: 1fr;
+    }
+
+    .about-visual {
+        height: 200px;
+    }
+
+    .sphere-animation {
+        width: 150px;
+        height: 150px;
+    }
+
+    /* --- Team --- */
+    .team-section {
+        padding: 4rem 1rem;
+    }
+
+    .team-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.2rem;
+    }
+
+    .team-card {
+        padding: 1.5rem 1rem;
+    }
+
+    .team-img-wrapper {
+        width: 100px;
+        height: 100px;
+    }
+
+    .team-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .team-role {
+        font-size: 0.85rem;
+    }
+
+    /* --- Offices --- */
+    .office-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .office-card {
+        padding: 1.5rem 1rem;
+    }
+
+    /* --- Careers --- */
+    .career-box {
+        padding: 2.5rem 1.5rem;
+    }
+
+    .career-box h2 {
+        font-size: 1.8rem;
+    }
+
+    .career-box p {
+        font-size: 0.95rem;
+    }
+
+    .career-stats {
+        gap: 0.8rem;
+    }
+
+    .pill-badge {
+        font-size: 0.8rem;
+        padding: 0.5rem 1rem;
+    }
+
+    /* --- CTA --- */
+    .cta-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .cta-section p {
+        font-size: 1rem;
+    }
+
+    /* --- Contact --- */
+    .contact-container {
+        padding: 1.5rem;
+        gap: 2rem;
+    }
+
+    .contact-info h2 {
+        font-size: 1.6rem;
+    }
+
+    /* --- Partners --- */
+    .partners-container {
+        padding: 1.5rem;
+    }
+
+    .partners-info h2 {
+        font-size: 1.8rem;
+    }
+
+    .partners-grid-visual {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* --- Footer --- */
     .footer-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
+
+    footer {
+        padding: 3rem 1rem 1.5rem;
+    }
+
     .footer-bottom {
         flex-direction: column;
         gap: 1rem;
         text-align: center;
+    }
+
+    .legal-links {
+        justify-content: center;
+    }
+
+    .social-links a {
+        width: 40px;
+        height: 40px;
+    }
+
+    /* --- Cookie Popup --- */
+    .cookie-popup {
+        left: 10px;
+        right: 10px;
+        max-width: none;
+    }
+
+    /* --- Welcome Popup --- */
+    .welcome-popup {
+        max-width: 90%;
+    }
+
+    .welcome-popup h2 {
+        font-size: 1.5rem;
+    }
+
+    .welcome-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 2rem;
+    }
+
+    /* --- AI Brain Section --- */
+    .scroll-ai-section {
+        height: 80vh;
+    }
+
+    .brain-bubble {
+        font-size: 0.85rem;
+        padding: 0.5rem 1rem;
+    }
+
+    .brain-bubble i {
+        font-size: 0.9rem;
+    }
+
+    .scroll-instruction {
+        font-size: 0.8rem;
+        bottom: 30px;
+    }
+
+    /* --- Trusted By --- */
+    .client-logo-marquee::before,
+    .client-logo-marquee::after {
+        width: 8vw;
+    }
+
+    .logo-track {
+        font-size: 1.1rem;
+        gap: 2.5rem;
+    }
+
+    /* Glass Panel reduce padding on mobile */
+    .glass-panel {
+        padding: 1.5rem;
+        border-radius: 16px;
+    }
+
+    .glass-panel:hover {
+        transform: none;
+    }
+
+    /* Buttons sizing */
+    .btn-primary {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+    }
+
+    .btn-outline {
+        padding: 0.8rem 1.5rem;
+    }
+}
+
+/* ---- Small Mobile (max-width: 480px) ---- */
+@media (max-width: 480px) {
+    section {
+        padding: 3rem 0.8rem;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.9rem;
+    }
+
+    .section-header h2 {
+        font-size: 1.6rem;
+    }
+
+    .badge {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.8rem;
+    }
+
+    /* Services single column */
+    .service-card {
+        height: 280px;
+    }
+
+    .flip-card-front h3 {
+        font-size: 1.2rem;
+    }
+
+    .flip-card-front p {
+        font-size: 0.85rem;
+    }
+
+    .icon-wrapper {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+
+    /* Team - single column on very small */
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .team-img-wrapper {
+        width: 120px;
+        height: 120px;
+    }
+
+    /* Stats */
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stat-box h3 {
+        font-size: 2rem;
+    }
+
+    /* Offices */
+    .office-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Career */
+    .career-box h2 {
+        font-size: 1.5rem;
+    }
+
+    .career-stats {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* CTA */
+    .cta-section h2 {
+        font-size: 1.5rem;
+    }
+
+    /* Partners */
+    .partners-grid-visual {
+        grid-template-columns: 1fr;
+    }
+
+    .partners-info h2 {
+        font-size: 1.5rem;
+    }
+
+    /* Contact */
+    .contact-info h2 {
+        font-size: 1.4rem;
+    }
+
+    .detail-item {
+        gap: 1rem;
+    }
+
+    .detail-item i {
+        font-size: 1.2rem;
+    }
+
+    /* Footer */
+    .footer-brand .logo {
+        font-size: 1.3rem;
+    }
+
+    .newsletter-form {
+        height: 40px;
+    }
+
+    /* Welcome */
+    .welcome-popup h2 {
+        font-size: 1.3rem;
+    }
+
+    .welcome-popup p {
+        font-size: 0.9rem;
+    }
+
+    /* AI Brain */
+    .scroll-ai-section {
+        height: 70vh;
+    }
+
+    .brain-bubble {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.8rem;
     }
 }

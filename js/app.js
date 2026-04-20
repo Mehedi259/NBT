@@ -18,10 +18,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Mobile Menu Toggle
     const mobileBtn = document.querySelector('.mobile-menu-btn');
-    // Implement standard toggle if needed, or open a drawer
-    mobileBtn.addEventListener('click', () => {
-        alert('Mobile menu navigation toggled.');
-    });
+    const navLinks = document.querySelector('.nav-links');
+    const mobileBtnIcon = mobileBtn ? mobileBtn.querySelector('i') : null;
+
+    if (mobileBtn && navLinks) {
+        mobileBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            if (mobileBtnIcon) {
+                mobileBtnIcon.classList.toggle('fa-bars');
+                mobileBtnIcon.classList.toggle('fa-times');
+            }
+        });
+
+        // Close menu when a link is clicked
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                if (mobileBtnIcon) {
+                    mobileBtnIcon.classList.add('fa-bars');
+                    mobileBtnIcon.classList.remove('fa-times');
+                }
+            });
+        });
+    }
 
     // Initialize Vanilla-tilt (Only on products, service-cards use CSS flips)
     if (window.VanillaTilt) {
