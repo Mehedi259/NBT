@@ -612,16 +612,21 @@ function initAIBrainScroll() {
     const canvas = document.getElementById('brain-canvas');
     if (!canvas || !window.THREE || typeof gsap === 'undefined') return;
 
+    const isMobile = window.innerWidth <= 768;
+    const isSmall = window.innerWidth <= 480;
+
     brainScene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
-    camera.position.z = 8;
+    // Push camera further on mobile so brain appears smaller
+    camera.position.z = isSmall ? 14 : isMobile ? 11 : 8;
     
     const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2)); // Cap pixel ratio for performance
 
-    // Create the "Brain" - A complex glowing Icosahedron showing multiple connections
-    const geometry = new THREE.IcosahedronGeometry(2, 2);
+    // Create the "Brain" - Smaller subdivision on mobile for performance
+    const brainDetail = isMobile ? 1 : 2;
+    const geometry = new THREE.IcosahedronGeometry(2, brainDetail);
     
     // Wireframe material for the tech look
     brainMaterial = new THREE.MeshBasicMaterial({ 
@@ -636,7 +641,7 @@ function initAIBrainScroll() {
     // Add glowing nodes at vertices
     const pointsMat = new THREE.PointsMaterial({
         color: document.body.hasAttribute('data-theme') ? 0x7b2cbf : 0x8b5cf6,
-        size: 0.12,
+        size: isMobile ? 0.08 : 0.12,
         transparent: true,
         opacity: 0.9
     });
@@ -649,49 +654,55 @@ function initAIBrainScroll() {
     // GSAP ScrollTrigger Sequence
     gsap.registerPlugin(ScrollTrigger);
 
+    // Shorter scroll lock on mobile
+    const scrollDistance = isSmall ? 1500 : isMobile ? 2000 : 3000;
+
     // Timeline that controls the Brain and bubbles
     const tl = gsap.timeline({
         scrollTrigger: {
             trigger: "#ai-brain-section",
-            start: "top top",      // When section hits top of viewport
-            end: "+=3000",         // Lock scroll for 3000px
-            pin: true,             // Pin the section
-            scrub: 1,              // Smooth scrubbing
+            start: "top top",
+            end: "+=" + scrollDistance,
+            pin: true,
+            scrub: 1,
         }
     });
 
-    // 1. Rotate the brain 360 degrees (in Radians = Math.PI * 2)
+    // 1. Rotate the brain 360 degrees
     tl.to(brain.rotation, { y: Math.PI * 2, duration: 2, ease: "none" }, 0);
     tl.to(brainNodes.rotation, { y: Math.PI * 2, duration: 2, ease: "none" }, 0);
     
-    // Also rotate slightly on X and Z axis for dynamic depth
     tl.to(brain.rotation, { x: Math.PI / 4, z: Math.PI / 6, duration: 2, ease: "none" }, 0);
     tl.to(brainNodes.rotation, { x: Math.PI / 4, z: Math.PI / 6, duration: 2, ease: "none" }, 0);
     
-    // 2. Animate Bubbles popping up at intervals
+    // 2. Animate Bubbles — much smaller radius on mobile
     const bubbles = document.querySelectorAll('.brain-bubble');
-    const radius = window.innerWidth > 768 ? 400 : 200; // Radius distance for bubbles
+    const radius = isSmall ? 100 : isMobile ? 140 : 400;
     
     bubbles.forEach((bubble, index) => {
-        const total = bubbles.length;
-        const angle = (index / total) * Math.PI * 2 - (Math.PI / 2); // Start from top
-        const xPos = Math.cos(angle) * radius;
-        const yPos = Math.sin(angle) * (radius * 0.6); // slight ellipse
+        // On very small screens, hide last 2 bubbles to avoid overflow
+        if (isSmall && index >= 3) {
+            bubble.style.display = 'none';
+            return;
+        }
 
-        // Start them from center
+        const visibleCount = isSmall ? 3 : bubbles.length;
+        const angle = (index / visibleCount) * Math.PI * 2 - (Math.PI / 2);
+        const xPos = Math.cos(angle) * radius;
+        const yPos = Math.sin(angle) * (radius * 0.6);
+
         gsap.set(bubble, { x: 0, y: 0, xPercent: -50, yPercent: -50, scale: 0, opacity: 0 });
 
-        // Enter timeline
         tl.to(bubble, {
             x: xPos,
             y: yPos,
             xPercent: -50,
             yPercent: -50,
-            scale: 1,
+            scale: isMobile ? 0.85 : 1,
             opacity: 1,
             duration: 0.3,
             ease: "back.out(1.5)"
-        }, (index * 0.25)); // stagger entrance timing alongside rotation
+        }, (index * 0.25));
     });
 
     // Render loop synced to scroll
